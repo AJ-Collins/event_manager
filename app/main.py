@@ -17,6 +17,10 @@ app = FastAPI(
     license_info={"name": "MIT", "url": "https://opensource.org/licenses/MIT"},
 )
 
+@app.get("/")
+async def root():
+	return {"message": "User Management API is running."}
+
 @app.on_event("startup")
 async def startup_event():
     settings = get_settings()
